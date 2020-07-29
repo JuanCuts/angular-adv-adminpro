@@ -3,12 +3,20 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title">Progress bar</p>
-                <div class="progress">
+                <div class="progress mt-2">
                     <div 
-                        class="progress-bar bg-primary progress-bar-striped active" 
-                        role="progressbar" 
-                        style="height:5px;" 
-                        [style.width]="getProcentaje"
+                    class="progress-bar bg-primary progress-bar-striped active" 
+                    role="progressbar" 
+                    style="height:5px;"
+                    [style.width]="getProcentaje1"
+                    ></div>
+                </div>
+                <div class="progress mt-2">
+                    <div 
+                    class="progress-bar bg-info progress-bar-striped active" 
+                    role="progressbar" 
+                    style="height:5px;"
+                    [style.width]="getProcentaje2"
                     ></div>
                 </div>
             </div>
@@ -20,26 +28,22 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-sl-6">
         <div class="card">
             <div class="card-body">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" (click)="cambiarValor(-5)">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </span>
-                    <input type="number" class="form-control" placeholder="Product name" [(ngModel)]="progreso" readonly>
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" (click)="cambiarValor(+5)">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </span>
-                </div>
+                <app-incrementador 
+                    [valor]="progreso1"
+                    [btnClass]="'btn-primary'"
+                    (valor)="progreso1 = $event"
+                ></app-incrementador>
             </div>
         </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-sl-6">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">2</p>
+                <app-incrementador 
+                    [valor]="progreso2"
+                    [btnClass]="'btn-info'"
+                    (valor)="progreso2 = $event"
+                ></app-incrementador>
             </div>
         </div>
     </div>
